@@ -1,0 +1,22 @@
+.menu{
+    float:left;
+}
+.menu_item{
+    text-align:right;
+}
+
+.page{
+}
+
+#title{
+    height:70px;
+    text-align:center;
+}
+
+#body{
+    text-align:center;
+}
+
+tr{
+    width:20px;
+}

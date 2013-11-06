@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/site_static/css/base.css" type="text/css" media="all" />
+        <script src="/site_static/js/jquery-2.0.0.min.js"></script>
+        <script src="/site_static/js/ajax_setup.js"></script>
+
+        <script>
+            {% block extrascript %}{% endblock %}
+        </script>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+      {% csrf_token %}
+      {% block menu %}{% endblock %}</section>
+      {% block content %}{% endblock %}</section>
+    </body>
+</html>

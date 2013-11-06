@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}About Django{% endblock %}
+
+{% block extrascript %}
+    function get_body_handle(page_id){
+        $.ajax({
+            type: "GET",
+            url: "/getbody/",
+            data: "page_id="+page_id,
+            success: function(page){
+                $('#title').text(page.title);
+                $('#body').text(page.body);
+            }
+        });
+    }
+
+{% endblock %}
+
+{% block menu %}
+        {% for chapter, pages in chapters.iteritems %}
+        <div class=menu>
+            {{ chapter }}
+            <div class=menu_item>
+            {% for page_id, title in pages %}
+                <p><a href='#{{page_id}}',
+                      onclick=get_body_handle('{{page_id}}')>{{ title }}
+                   </a>
+                </p>
+            {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}
+
+{% block content%}
+    <div class=page>
+      <div id=title></div>
+      <div id=body></div>
+    </div>
+{% endblock %}
