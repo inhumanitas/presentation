@@ -1,22 +1,39 @@
+html,body{
+    height:100%;
+}
+
 .menu{
     float:left;
+    border:1px;
+    border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:5px;
+    -khtml-border-radius:10px;
+    background:#d0f0c0;
+    text-align:center;
 }
 .menu_item{
+    background:#98ff98;
     text-align:right;
 }
 
 .page{
+    border:1px;
+    border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:5px;
+    -khtml-border-radius:10px;
+    background:#f2e8c9;
+    height:100%;
 }
 
 #title{
     height:70px;
     text-align:center;
+    font-size:25px;
 }
 
 #body{
     text-align:center;
-}
-
-tr{
-    width:20px;
+    font-size:20px;
 }

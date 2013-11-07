@@ -18,9 +18,9 @@
 {% endblock %}
 
 {% block menu %}
-        {% for chapter, pages in chapters.iteritems %}
         <div class=menu>
-            {{ chapter }}
+        {% for chapter, pages in chapters %}
+            <b>{{ chapter }}</b>
             <div class=menu_item>
             {% for page_id, title in pages %}
                 <p><a href='#{{page_id}}',
@@ -29,13 +29,13 @@
                 </p>
             {% endfor %}
             </div>
-        </div>
         {% endfor %}
+        </div>
 {% endblock %}
 
 {% block content%}
     <div class=page>
       <div id=title></div>
-      <div id=body></div>
+      <pre id=body></pre>
     </div>
 {% endblock %}

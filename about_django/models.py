@@ -8,11 +8,10 @@ from mongoengine import (
 class Page(Document):
     page_num = IntField()
     title = StringField(required=True, max_length=50)
-    body = StringField(max_length=50)
+    body = StringField(max_length=1250)
 
 
 class AboutDjangoChapter(Document):
-#    _id = StringField()
-    chapter = StringField(max_length=50)
+    chapter = StringField(max_length=550)
     pages = ListField(ReferenceField(
         Page, reverse_delete_rule=CASCADE))

@@ -4,6 +4,7 @@ from bson import ObjectId
 from mongoengine import connect#, disconnect
 from about_django.models import Page, AboutDjangoChapter
 
+
 DB_CONN = None
 
 
@@ -34,15 +35,20 @@ def create_about_django_pages(pages_tpl):
     return pages
 
 
-def create_about_django_db():
-    from about_django.data import about_django_data
+def delete_db():
     connect_to_db()
     AboutDjangoChapter.objects.filter().delete()
     Page.objects.filter().delete()
+
+
+def create_about_django_db():
+    from about_django.data import about_django_data
+    connect_to_db()
+    delete_db()
     for chapter in about_django_data.keys():
         print chapter
         adc = AboutDjangoChapter()
-        adc.chapter = str(chapter)
+        adc.chapter = chapter
         adc.pages = create_about_django_pages(about_django_data[chapter])
         adc.save()
     print "created AboutDjangoChapter"
